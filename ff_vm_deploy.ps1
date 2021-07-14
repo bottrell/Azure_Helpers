@@ -1,17 +1,17 @@
 param (
-    [string]$resourceGroupName = "dev-win10accpilot",
+    [string]$resourceGroupName
     [int]$numVms
 )
 
 #--------------------Constants------------------#
-$subnetName = "prd-wus2-data"
-$vnetName = "prd-wus2-vnet01"
-$location = "westus2"
-$imageName = "accounting-pilot01"
-$imagePath = "/subscriptions/17c5d9a2-e4fd-4a44-848f-1a7ba1a2aa02/resourceGroups/rg-win10image/providers/Microsoft.Compute/galleries/prdsig01/images/accounting-pilot01/versions/1.0.0"
+$subnetName = ""
+$vnetName = ""
+$location = ""
+$imageName = ""
+$imagePath = ""
 $sku = "Standard_D4s_v4"
-$localuser = "freedomadmin"
-$localpass = "P@ssw0rdLIT!"
+$localuser = ""
+$localpass = ""
 
 #-----------------------Main--------------------#
 $cred = Get-Credential -Message "Enter a username and password for the virtual machines"
