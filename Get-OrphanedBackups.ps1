@@ -1,8 +1,5 @@
 #Enter subscription Id's in the form of a list of strings
-$subscriptions = @("Eversource-IT-Dev-01",
-    "Eversource-IT-Prd-01",
-    "Eversource-IT-Hub",
-    "Eversource-IT-Tst-01")
+$subscriptions = @("1","2","3","4")
 
 # Iterate through each subscription
 foreach ($subscription in $subscriptions) {
