@@ -4,9 +4,6 @@
 $deleteUnattachedDisks=0
 
 $managedDisks = Get-AzDisk
-
-
-
 $allitems = @()
 
 foreach ($md in $managedDisks) {
@@ -14,20 +11,14 @@ foreach ($md in $managedDisks) {
     # ManagedBy property stores the Id of the VM to which Managed Disk is attached to
     # If ManagedBy property is $null then it means that the Managed Disk is not attached to a VM
     if($null -eq $md.ManagedBy ){
-
-
            $orphaneddisk = [PSCustomObject]@{
             Name = $md.Name
             Size = $md.DiskSizeGB
             ResourceGroupName = $md.ResourceGroupName
             ManagedBy = $md.ManagedBy
-
         }
-
         $allitems += $orphaneddisk
     }
-
-
  }
 
  foreach ($x in $allitems) {
