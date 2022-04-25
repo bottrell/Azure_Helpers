@@ -1,20 +1,8 @@
-###
-##
-## Author: Jordan Bottrell <jordan.bottrell@coretek.com>
-## Created: 05/18/2021
-##
+
 ## Description: Auto trigger VMs on at a set schedule. Script is set to only work on azure via AA runbook.
 ##
 ## Assumptions: Trigger via schedule from Azure Automation. Variable groups must exist beforehand. Each new time/schedule must be added
 ## as variable group and into a AA schedule for triggering. 
-##
-## Status:  Currently testing
-##
-##
-##
-###
-
-
 
 param (
     [String] $VariableGroupName
