@@ -21,7 +21,8 @@ In my opinion, converting to an Alert Rule V1 allows for a much better support e
 * Run `./ConvertAlertRuleToV1.ps1 -Name <NAME> -ResourceGroup <RG>`
     
 ## Optional Parameters:
-
+* `-EvaluationFrequency <int>` - The evaluation frequency of the query. Default is 15 minutes
+* `-TimeWindowInMinutes <int>` - The time window the query will run against. Default is 15 minutes.
 * `-EmailSubject <Custom Email subject for Email alerts>` - The email subject of the new alert. Default is null.
 * `-DeactivateNew <true/false>` - Leaves the old alert enabled and Deactivates the new alert. Default is false.
 * `-DeactivateOld <true/false>` - Deactivates the old alert and Activates the new alert. Default is true.
