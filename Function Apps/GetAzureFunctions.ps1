@@ -5,6 +5,7 @@ $azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+$sub = $azContext.Subscription.Name
 $authHeader = @{
    'Content-Type'='application/json'
    'Authorization'='Bearer ' + $token.AccessToken
@@ -24,9 +25,8 @@ foreach ($fa in $allFunctionApps){
 
 #output is a list of custom objects
 $output = @()
+
 foreach ($function in $allfunctions) {
-    $subid = Get-AzContext | select Subscription
-    $sub = (Get-AzSubscription | where-object {$_.Id -eq $subid}) | select Name
     $functionappname = ($function.name -Split "/")[0]
     $functionname = ($function.name -Split "/")[1]
     $functionoutput = [PSCustomObject]@{
